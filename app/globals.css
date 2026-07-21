@@ -162,6 +162,7 @@ nav a:hover { color: var(--blue); }
 .job-content { max-width: 740px; }
 .job-content h3 { margin: 0; font-size: 1.3rem; line-height: 1.25; letter-spacing: -.02em; }
 .company { margin: 3px 0 18px; color: var(--blue); font-weight: 650; }
+.previous-role { margin: -10px 0 17px; color: var(--muted); font-size: .84rem; }
 .job-summary { margin: 0 0 15px; color: #344054; font-weight: 530; }
 .job-content ul { margin: 0; padding-left: 19px; color: var(--muted); }
 .job-content li { padding-left: 6px; margin: 7px 0; }
@@ -194,7 +195,7 @@ nav a:hover { color: var(--blue); }
 .skill-group h3 { margin: 0 0 15px; font-size: .88rem; }
 .skill-group ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .9rem; }
 .skill-group li + li { margin-top: 7px; }
-.credentials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 54px; background: var(--line); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; }
+.credentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 54px; background: var(--line); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; }
 .credentials > div { padding: 25px; background: var(--white); }
 .credentials p { margin: 0 0 9px; color: var(--blue); font-size: .68rem; font-weight: 720; letter-spacing: .1em; text-transform: uppercase; }
 .credentials h3 { margin: 0; font-size: .98rem; line-height: 1.4; }

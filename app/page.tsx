@@ -4,16 +4,17 @@ const experience = [
   {
     company: "Indeed",
     location: "Bengaluru, India",
-    role: "Software Engineer II",
-    period: "Sep 2022 - Present",
+    role: "Staff Software Engineer",
+    period: "Jun 2025 - Present",
+    previousRole: "Senior Software Engineer · Sep 2022 - Jun 2025",
     summary:
-      "Leading backend and AI-focused initiatives that improve product capabilities, platform performance, and user engagement.",
+      "Building intelligent agents and multi-agent systems that improve how employers hire.",
     bullets: [
-      "Lead a team delivering high-impact projects across multiple domains, including an initiative applying advanced machine learning models to product experiences.",
-      "Mentor engineers through design reviews, ownership growth, and pragmatic production decisions.",
-      "Connect engineering execution with product goals while keeping reliability and maintainability central.",
+      "Develop and deploy intelligent agents with LangGraph, integrating and optimizing multiple LLM APIs through custom tooling.",
+      "Build an AI-powered hiring agent for intelligent candidate sourcing and the early stages of talent acquisition.",
+      "Build a recommendation platform that uses user and job context to suggest strategic next actions for employers.",
     ],
-    skills: ["Java", "Applied AI", "Distributed systems", "Technical leadership"],
+    skills: ["AI agents", "LangGraph", "LLMs", "Python", "Recommender systems"],
   },
   {
     company: "Grab",
@@ -32,8 +33,8 @@ const experience = [
   {
     company: "Works Applications",
     location: "Singapore",
-    role: "Software Engineer → Senior Software Engineer",
-    period: "Oct 2016 - Sep 2019",
+    role: "Senior Software Engineer / Software Developer",
+    period: "Oct 2016 - Jun 2019",
     summary:
       "Modernized enterprise commerce and inventory systems for a Japanese ERP platform.",
     bullets: [
@@ -46,7 +47,7 @@ const experience = [
   {
     company: "Walmart Labs",
     location: "Bengaluru, India",
-    role: "Software Engineering Intern",
+    role: "Software Developer",
     period: "Jan 2016 - Jul 2016",
     summary:
       "Worked on customer-facing commerce systems for ASDA's e-commerce platform.",
@@ -98,7 +99,7 @@ export default function Home() {
       <section className="hero container" aria-labelledby="hero-title">
         <p className="hello">Hello, I&apos;m</p>
         <h1 id="hero-title">Shubham Singla</h1>
-        <p className="hero-role">Backend &amp; AI Engineer</p>
+        <p className="hero-role">Staff Software Engineer · Backend &amp; AI</p>
         <p className="hero-summary">
           I build dependable platforms, payment systems, and applied AI products—and help
           engineering teams turn complex problems into software that works in the real world.
@@ -149,6 +150,9 @@ export default function Home() {
                 <div className="job-content">
                   <h3>{job.role}</h3>
                   <p className="company">{job.company}</p>
+                  {"previousRole" in job && job.previousRole ? (
+                    <p className="previous-role">Previously: {job.previousRole}</p>
+                  ) : null}
                   <p className="job-summary">{job.summary}</p>
                   <ul>{job.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
                   <div className="tags" aria-label={`${job.company} skills`}>
@@ -215,13 +219,8 @@ export default function Home() {
           <div className="credentials">
             <div>
               <p>Education</p>
-              <h3>Computer Engineering</h3>
-              <span>Thapar Institute · 2016</span>
-            </div>
-            <div>
-              <p>Credentials</p>
-              <h3>AWS Solutions Architect – Associate</h3>
-              <span>Issued Dec 2020 · Expired Dec 2023</span>
+              <h3>Bachelor&apos;s degree, Computer Science</h3>
+              <span>Thapar Institute · 2012 - 2016</span>
             </div>
             <div>
               <p>Credential</p>

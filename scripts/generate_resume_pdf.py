@@ -103,7 +103,7 @@ def draw_page(canvas, doc):
     canvas.line(doc.leftMargin, 0.38 * inch, width - doc.rightMargin, 0.38 * inch)
     canvas.setFont("Helvetica", 6.1)
     canvas.setFillColor(MUTED)
-    canvas.drawString(doc.leftMargin, 0.23 * inch, "SHUBHAM SINGLA - BACKEND AND AI ENGINEER")
+    canvas.drawString(doc.leftMargin, 0.23 * inch, "SHUBHAM SINGLA - STAFF SOFTWARE ENGINEER")
     canvas.drawRightString(width - doc.rightMargin, 0.23 * inch, "RESUME")
     canvas.restoreState()
 
@@ -115,14 +115,14 @@ doc = SimpleDocTemplate(
     rightMargin=0.44 * inch,
     topMargin=0.38 * inch,
     bottomMargin=0.46 * inch,
-    title="Shubham Singla - Backend and AI Engineer",
+    title="Shubham Singla - Staff Software Engineer",
     author="Shubham Singla",
     subject="Professional resume",
 )
 
 story = [
     Paragraph("Shubham Singla", NAME),
-    Paragraph("BACKEND &amp; AI ENGINEER | ENGINEERING LEAD", ROLE),
+    Paragraph("STAFF SOFTWARE ENGINEER | AI AGENTS | BACKEND SYSTEMS", ROLE),
     Paragraph(
         "Bengaluru, India  |  "
         "<a href='mailto:shubham101203095@gmail.com' color='#4D596C'>shubham101203095@gmail.com</a>  |  "
@@ -134,18 +134,25 @@ story = [
     Table([[""]], colWidths=[doc.width], rowHeights=[1], style=TableStyle([("BACKGROUND", (0, 0), (-1, -1), BLUE)])),
     Paragraph("SUMMARY", SECTION),
     Paragraph(
-        "Backend and AI engineer with 10+ years of experience building payment systems, cloud platforms, enterprise products, and applied AI capabilities across India and Singapore. Combines hands-on architecture with team leadership, mentoring, and pragmatic production delivery.",
+        "Staff Software Engineer at Indeed with 10+ years of experience building AI agents, payment systems, cloud platforms, and enterprise products across India and Singapore. Combines hands-on architecture with team leadership and pragmatic production delivery.",
         SUMMARY,
     ),
     Paragraph("EXPERIENCE", SECTION),
     job(
-        "Indeed", "Software Engineer II", "Bengaluru, India", "Sep 2022 - Present",
+        "Indeed", "Staff Software Engineer", "Bengaluru, India", "Jun 2025 - Present",
         [
-            "Lead a team delivering high-impact projects across multiple domains, including an initiative applying advanced machine learning models to product capabilities.",
-            "Mentor engineers through design reviews, ownership growth, and pragmatic production decisions.",
-            "Drive platform performance and user-engagement improvements while aligning engineering execution with strategic goals.",
+            "Develop and deploy intelligent agents and multi-agent architectures with LangGraph.",
+            "Integrate and optimize multiple LLM APIs through custom tooling for efficient agent communication.",
+            "Build an AI-powered hiring agent for candidate sourcing and a context-aware recommendation platform for employers.",
         ],
-        "Java, applied AI, distributed systems, technical leadership",
+        "AI agents, LangGraph, LLMs, generative AI, Python, recommender systems, NLP",
+    ),
+    job(
+        "Indeed", "Senior Software Engineer", "Bengaluru, India", "Sep 2022 - Jun 2025",
+        [
+            "Built and improved production software for Indeed before promotion to Staff Software Engineer.",
+        ],
+        "Backend systems, platform engineering, product delivery",
     ),
     job(
         "Grab", "Senior Backend Engineer", "Singapore", "Jun 2019 - Sep 2022",
@@ -157,7 +164,7 @@ story = [
         "Go, payments, low-latency architecture, high-throughput services",
     ),
     job(
-        "Works Applications", "Senior Software Engineer / Software Engineer", "Singapore", "Oct 2016 - Sep 2019",
+        "Works Applications", "Senior Software Engineer / Software Developer", "Singapore", "Oct 2016 - Jun 2019",
         [
             "Designed serverless architecture for an on-premise to AWS migration using Lambda, DynamoDB, S3, and Elasticsearch.",
             "Created Spark batch-processing systems on AWS Batch for large-scale file workflows.",
@@ -166,7 +173,7 @@ story = [
         "AWS, Lambda, DynamoDB, S3, Elasticsearch, Spark, AWS Batch",
     ),
     job(
-        "Walmart Labs", "Software Engineering Intern", "Bengaluru, India", "Jan 2016 - Jul 2016",
+        "Walmart eCommerce", "Software Developer", "Bengaluru, India", "Jan 2016 - Jul 2016",
         ["Built a reusable tooltip system for ASDA's e-commerce customer-satisfaction team."],
         "E-commerce, customer experience, frontend systems",
     ),
@@ -178,11 +185,10 @@ story = [
     ),
     Paragraph("EDUCATION, PROJECTS AND CREDENTIALS", SECTION),
     Paragraph(
-        "<b>Computer Engineering</b> - Thapar Institute, 2016<br/>"
+        "<b>Bachelor's degree, Computer Science</b> - Thapar Institute, 2012 - 2016<br/>"
         "<b>Projects:</b> NIFTY50 Trader Pro - market intelligence dashboard; Digital Bio Maker - no-code portfolio builder<br/>"
         "<b>Languages:</b> English, Hindi<br/>"
-        "<b>Credentials:</b> AWS Certified Solutions Architect - Associate (issued Dec 2020, expired Dec 2023); "
-        "MongoDB with Java Spring Boot (issued Jun 2023)",
+        "<b>Credential:</b> MongoDB with Java Spring Boot (issued Jun 2023)",
         COMPACT,
     ),
 ]

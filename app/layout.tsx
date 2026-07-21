@@ -16,9 +16,9 @@ const siteUrl = "https://singla3095.github.io/shubham-resume/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Shubham Singla · Backend & AI Engineer",
+  title: "Shubham Singla · Staff Software Engineer",
   description:
-    "Shubham Singla is a backend and AI engineer with 10+ years building payment systems, cloud platforms, and applied AI products.",
+    "Shubham Singla is a Staff Software Engineer at Indeed with 10+ years building AI agents, payment systems, and backend platforms.",
   applicationName: "Shubham Singla",
   authors: [{ name: "Shubham Singla" }],
   alternates: { canonical: siteUrl },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "AWS",
   ],
   openGraph: {
-    title: "Shubham Singla · Backend & AI Engineer",
+    title: "Shubham Singla · Staff Software Engineer",
     description: "10+ years building reliable systems across India and Singapore.",
     type: "profile",
     url: siteUrl,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shubham Singla · Backend & AI Engineer",
+    title: "Shubham Singla · Staff Software Engineer",
     description: "10+ years building reliable systems across India and Singapore.",
     images: [`${siteUrl}og.png`],
   },
