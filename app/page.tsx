@@ -1,388 +1,250 @@
-"use client";
-
-/* eslint-disable @next/next/no-img-element -- static GitHub Pages assets do not use an image optimizer */
-
-import { useState } from "react";
+/* eslint-disable @next/next/no-img-element -- static export for GitHub Pages */
 
 const experience = [
   {
     company: "Indeed",
-    mark: "I",
     location: "Bengaluru, India",
-    period: "Sep 2022 - Present",
     role: "Software Engineer II",
-    intro:
-      "Leading backend and AI-focused work where product judgment, system reliability, and team execution meet.",
-    highlights: [
-      "Lead a team delivering high-impact projects across multiple domains, including an AI initiative that applies advanced machine learning models to product capabilities.",
-      "Mentor junior engineers through design reviews, ownership growth, and practical production decision-making.",
-      "Drive platform performance and user-engagement improvements while aligning engineering execution with strategic goals.",
+    period: "Sep 2022 - Present",
+    summary:
+      "Leading backend and AI-focused initiatives that improve product capabilities, platform performance, and user engagement.",
+    bullets: [
+      "Lead a team delivering high-impact projects across multiple domains, including an initiative applying advanced machine learning models to product experiences.",
+      "Mentor engineers through design reviews, ownership growth, and pragmatic production decisions.",
+      "Connect engineering execution with product goals while keeping reliability and maintainability central.",
     ],
-    stack: ["Java", "Applied AI", "Distributed systems", "Technical leadership"],
-    current: true,
+    skills: ["Java", "Applied AI", "Distributed systems", "Technical leadership"],
   },
   {
     company: "Grab",
-    mark: "G",
     location: "Singapore",
-    period: "Jun 2019 - Sep 2022",
     role: "Senior Backend Engineer",
-    intro:
-      "Built core payment infrastructure for one of Southeast Asia's largest superapps.",
-    highlights: [
+    period: "Jun 2019 - Sep 2022",
+    summary:
+      "Built core payment infrastructure for one of Southeast Asia's largest technology platforms.",
+    bullets: [
       "Built the GrabPay debit-card platform from the ground up as one of the project's first engineers.",
-      "Designed scalable, high-volume, low-latency architecture and developed services across Grab's payment ecosystem.",
-      "Led a team of three engineers and owned system design, business requirements, engineering quality, and code reviews.",
+      "Designed scalable, high-volume, low-latency services across Grab's payments ecosystem.",
+      "Led a team of three engineers across system design, requirements, delivery quality, and code reviews.",
     ],
-    stack: ["Go", "Payments", "Low latency", "High throughput"],
+    skills: ["Go", "Payments", "Low latency", "High throughput"],
   },
   {
     company: "Works Applications",
-    mark: "W",
     location: "Singapore",
+    role: "Software Engineer → Senior Software Engineer",
     period: "Oct 2016 - Sep 2019",
-    role: "Software Engineer -> Senior Software Engineer",
-    intro:
+    summary:
       "Modernized enterprise commerce and inventory systems for a Japanese ERP platform.",
-    highlights: [
+    bullets: [
       "Designed serverless architecture during an on-premise to AWS migration using Lambda, DynamoDB, S3, and Elasticsearch.",
       "Created Spark batch-processing systems on AWS Batch for large-scale file workflows.",
-      "Built user-facing commerce and inventory capabilities from customer requirements through production delivery.",
+      "Delivered customer-facing commerce and inventory features from requirements through production.",
     ],
-    stack: ["AWS", "Lambda", "DynamoDB", "Spark", "Elasticsearch"],
+    skills: ["AWS", "Lambda", "DynamoDB", "Spark", "Elasticsearch"],
   },
   {
     company: "Walmart Labs",
-    mark: "W",
     location: "Bengaluru, India",
-    period: "Jan 2016 - Jul 2016",
     role: "Software Engineering Intern",
-    intro: "Started in customer-facing commerce systems for ASDA's e-commerce platform.",
-    highlights: [
-      "Built a reusable tooltip system for ASDA's e-commerce experience as part of the customer-satisfaction team.",
-      "Worked inside a large retail engineering environment and shipped production-facing user experience improvements.",
+    period: "Jan 2016 - Jul 2016",
+    summary:
+      "Worked on customer-facing commerce systems for ASDA's e-commerce platform.",
+    bullets: [
+      "Built a reusable tooltip system for the customer-satisfaction team and shipped production-facing experience improvements.",
     ],
-    stack: ["E-commerce", "Customer experience", "Frontend systems"],
-  },
-];
-
-const projects = [
-  {
-    name: "NIFTY50 Trader Pro",
-    type: "Market intelligence",
-    image: "./project-stock.png",
-    description:
-      "A focused trading dashboard for reading market structure, momentum, technical signals, and portfolio state without visual noise.",
-    live: "https://singla3095.github.io/stock-trading/",
-    source: "https://github.com/singla3095/stock-trading",
-    stack: ["React", "Market data", "Technical analysis"],
-  },
-  {
-    name: "Digital Bio Maker",
-    type: "Identity tooling",
-    image: "./project-bio.png",
-    description:
-      "A portfolio builder that turns a professional story into a clean, shareable digital presence with no coding required.",
-    live: "https://singla3095.github.io/digital-bio-maker/",
-    source: "https://github.com/singla3095/digital-bio-maker",
-    stack: ["React", "Design systems", "Creator tooling"],
+    skills: ["E-commerce", "Customer experience", "Frontend systems"],
   },
 ];
 
 const skillGroups = [
-  { label: "Languages", skills: ["Java", "Go", "SQL"] },
-  { label: "Distributed systems", skills: ["Kafka", "Redis", "Elasticsearch", "Kubernetes"] },
-  { label: "Cloud and delivery", skills: ["AWS", "Terraform", "Lambda", "AWS Batch"] },
-  { label: "Data stores", skills: ["MySQL", "MongoDB", "DynamoDB"] },
+  { title: "Languages", items: ["Java", "Go", "SQL"] },
+  { title: "Systems", items: ["Kafka", "Redis", "Elasticsearch", "Kubernetes"] },
+  { title: "Cloud", items: ["AWS", "Terraform", "Lambda", "AWS Batch"] },
+  { title: "Data", items: ["MySQL", "MongoDB", "DynamoDB"] },
 ];
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function SectionHeading({
-  label,
-  title,
-  description,
-}: {
-  label: string;
-  title: string;
-  description: string;
-}) {
+function SectionTitle({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
   return (
-    <header className="section-heading">
-      <p className="section-label">{label}</p>
-      <h2>{title}</h2>
-      <p className="section-description">{description}</p>
+    <header className="section-title">
+      <p>{eyebrow}</p>
+      <h2>{children}</h2>
     </header>
   );
 }
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
-
   return (
-    <main className={`portfolio${darkMode ? " theme-dark" : ""}`} id="top">
-      <div className="site-shell">
-        <header className="topbar">
-          <a className="brand" href="#top" aria-label="Shubham Singla, home">
-            <span className="brand-mark" aria-hidden="true">SS</span>
-            <span className="brand-copy">
-              <strong>Shubham Singla</strong>
-              <small>Backend / AI / Leadership</small>
-            </span>
-          </a>
-
-          <nav className="nav" aria-label="Primary navigation">
+    <main id="top">
+      <header className="site-header">
+        <div className="container header-inner">
+          <a className="wordmark" href="#top">Shubham Singla</a>
+          <nav aria-label="Primary navigation">
+            <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
           </nav>
-
-          <div className="nav-actions">
-            <button
-              className="theme-toggle"
-              type="button"
-              aria-label={darkMode ? "Use light theme" : "Use dark theme"}
-              aria-pressed={darkMode}
-              onClick={() => setDarkMode((value) => !value)}
-            >
-              <span aria-hidden="true">{darkMode ? "SUN" : "MOON"}</span>
-            </button>
-            <a className="nav-resume" href="./Shubham-Singla-Resume.pdf" download>
-              Resume ↓
-            </a>
-          </div>
-        </header>
-
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="hero-kicker"><span /> Bengaluru, India / Open to hard problems</p>
-            <h1 id="hero-title">Shubham<br /><em>Singla.</em></h1>
-            <p className="hero-role">Backend &amp; AI Engineer · Engineering Lead</p>
-            <p className="hero-intro">
-              I build dependable backend and AI products—from low-latency payment systems at Grab
-              to technology that helps people find work at Indeed.
-            </p>
-
-            <div className="hero-actions">
-              <a className="button button-primary" href="./Shubham-Singla-Resume.pdf" download>
-                Download résumé <span aria-hidden="true">↓</span>
-              </a>
-              <a className="button button-quiet" href="#experience">
-                View experience <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-
-            <div className="hero-links" aria-label="Professional profiles">
-              <a href="https://www.linkedin.com/in/shubham-singla-864a55106/" target="_blank" rel="noreferrer">
-                LinkedIn <Arrow />
-              </a>
-              <a href="https://github.com/singla3095" target="_blank" rel="noreferrer">
-                GitHub <Arrow />
-              </a>
-              <a href="mailto:shubham101203095@gmail.com">Email <Arrow /></a>
-            </div>
-          </div>
-
-          <aside className="production-card" aria-label="Professional overview">
-            <div className="card-header">
-              <span>Production record / 01</span>
-              <span className="live-status"><i /> Active</span>
-            </div>
-
-            <div className="monogram" aria-hidden="true">
-              <span>S</span><span>S</span>
-              <small>2016—NOW</small>
-            </div>
-
-            <div className="career-track" aria-label="Career path">
-              <div className="track-line" aria-hidden="true" />
-              {[
-                ["2016", "Walmart", "BLR"],
-                ["2016", "Works", "SIN"],
-                ["2019", "Grab", "SIN"],
-                ["2022", "Indeed", "BLR"],
-              ].map(([year, company, city], index) => (
-                <div className={`track-stop${index === 3 ? " is-current" : ""}`} key={company}>
-                  <span className="track-dot" aria-hidden="true" />
-                  <small>{year}</small>
-                  <strong>{company}</strong>
-                  <em>{city}</em>
-                </div>
-              ))}
-            </div>
-
-            <div className="card-stats">
-              <div><strong>10+</strong><span>years shipping</span></div>
-              <div><strong>2</strong><span>countries</span></div>
-              <div><strong>4</strong><span>product eras</span></div>
-            </div>
-          </aside>
-        </section>
-
-        <section className="signal-strip" aria-label="Professional focus">
-          <span>Distributed systems</span>
-          <span>Applied AI</span>
-          <span>Payments</span>
-          <span>Cloud platforms</span>
-          <span>Team leadership</span>
-        </section>
-
-        <section className="experience-section" id="experience" aria-labelledby="experience-title">
-          <SectionHeading
-            label="Experience / 2016—present"
-            title="Systems built where failure has consequences."
-            description="A decade across commerce, enterprise platforms, payments, and applied AI—moving from individual execution to technical and team leadership."
-          />
-
-          <div className="experience-list">
-            {experience.map((job, index) => (
-              <article className={`experience-card${job.current ? " is-current" : ""}`} key={job.company}>
-                <div className="experience-index">0{index + 1}</div>
-                <div className="company-block">
-                  <span className="company-mark" aria-hidden="true">{job.mark}</span>
-                  <div>
-                    <h3>{job.company}</h3>
-                    <p>{job.location}</p>
-                  </div>
-                </div>
-                <div className="role-block">
-                  <div className="role-meta">
-                    <div>
-                      <h4>{job.role}</h4>
-                      <p>{job.intro}</p>
-                    </div>
-                    <time>{job.period}</time>
-                  </div>
-                  <ul>
-                    {job.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-                  </ul>
-                  <div className="tag-list" aria-label={`${job.company} technologies and focus areas`}>
-                    {job.stack.map((item) => <span key={item}>{item}</span>)}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="projects-section" id="projects" aria-labelledby="projects-title">
-          <SectionHeading
-            label="Selected projects"
-            title="Ideas made inspectable."
-            description="Side projects are where I keep product instincts sharp: choose a real problem, reduce the noise, and put a working version in people's hands."
-          />
-
-          <div className="project-grid">
-            {projects.map((project, index) => (
-              <article className="project-card" key={project.name}>
-                <a className="project-image" href={project.live} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}>
-                  <img src={project.image} alt={`${project.name} interface preview`} />
-                  <span className="project-open">Open live <Arrow /></span>
-                </a>
-                <div className="project-body">
-                  <div className="project-meta">
-                    <span>0{index + 1} / {project.type}</span>
-                    <span>Live build</span>
-                  </div>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <div className="project-footer">
-                    <div className="tag-list">
-                      {project.stack.map((item) => <span key={item}>{item}</span>)}
-                    </div>
-                    <div className="project-links">
-                      <a href={project.live} target="_blank" rel="noreferrer">Demo <Arrow /></a>
-                      <a href={project.source} target="_blank" rel="noreferrer">Code <Arrow /></a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <a className="all-projects" href="https://github.com/singla3095?tab=repositories" target="_blank" rel="noreferrer">
-            Explore all GitHub repositories <Arrow />
+          <a className="header-resume" href="./Shubham-Singla-Resume.pdf" download>
+            Résumé <span aria-hidden="true">↓</span>
           </a>
-        </section>
+        </div>
+      </header>
 
-        <section className="skills-section" id="skills" aria-labelledby="skills-title">
-          <div className="skills-intro">
-            <p className="section-label">Technical range</p>
-            <h2 id="skills-title">Deep backend roots.<br />Broad production range.</h2>
-            <p>
-              I choose technology from constraints, not fashion—latency, failure modes, team
-              ownership, and the shape of the data come first.
-            </p>
-          </div>
-          <div className="skills-groups">
-            {skillGroups.map((group) => (
-              <article key={group.label}>
-                <h3>{group.label}</h3>
-                <div className="skill-list">
-                  {group.skills.map((skill) => <span key={skill}>{skill}</span>)}
+      <section className="hero container" aria-labelledby="hero-title">
+        <p className="hello">Hello, I&apos;m</p>
+        <h1 id="hero-title">Shubham Singla</h1>
+        <p className="hero-role">Backend &amp; AI Engineer</p>
+        <p className="hero-summary">
+          I build dependable platforms, payment systems, and applied AI products—and help
+          engineering teams turn complex problems into software that works in the real world.
+        </p>
+        <div className="hero-actions">
+          <a className="button primary" href="./Shubham-Singla-Resume.pdf" download>
+            Download résumé <span aria-hidden="true">↓</span>
+          </a>
+          <a className="button secondary" href="#projects">
+            View projects <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div className="social-links" aria-label="Professional profiles">
+          <a href="https://github.com/singla3095" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
+          <a href="https://www.linkedin.com/in/shubham-singla-864a55106/" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
+          <a href="mailto:shubham101203095@gmail.com">Email <Arrow /></a>
+        </div>
+      </section>
+
+      <section className="about section container" id="about">
+        <SectionTitle eyebrow="About">Engineering for outcomes, not theatre.</SectionTitle>
+        <div className="about-grid">
+          <p className="about-copy">
+            Over the last decade, I&apos;ve worked across e-commerce, enterprise software,
+            payments, and AI in India and Singapore. My best work sits between architecture
+            and execution: clarifying the problem, designing the right system, and helping a
+            team ship it with confidence.
+          </p>
+          <dl className="facts">
+            <div><dt>10+</dt><dd>Years building production systems</dd></div>
+            <div><dt>2</dt><dd>Countries: India and Singapore</dd></div>
+            <div><dt>4</dt><dd>Product companies since 2016</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section className="experience section" id="experience">
+        <div className="container">
+          <SectionTitle eyebrow="Experience">A decade of building at scale.</SectionTitle>
+          <div className="timeline">
+            {experience.map((job) => (
+              <article className="job" key={job.company}>
+                <div className="job-rail" aria-hidden="true"><span /></div>
+                <div className="job-meta">
+                  <p>{job.period}</p>
+                  <p>{job.location}</p>
+                </div>
+                <div className="job-content">
+                  <h3>{job.role}</h3>
+                  <p className="company">{job.company}</p>
+                  <p className="job-summary">{job.summary}</p>
+                  <ul>{job.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+                  <div className="tags" aria-label={`${job.company} skills`}>
+                    {job.skills.map((skill) => <span key={skill}>{skill}</span>)}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="credentials-section" aria-label="Education and credentials">
-          <article className="credential-card education-card">
-            <span className="credential-number">01</span>
-            <p className="section-label">Education</p>
-            <h2>Computer Engineering</h2>
-            <p>Thapar Institute of Engineering &amp; Technology</p>
-            <time>Class of 2016</time>
-          </article>
-          <article className="credential-card">
-            <span className="credential-number">02</span>
-            <p className="section-label">Credentials</p>
-            <h2>AWS Solutions Architect</h2>
-            <p>Associate certification · Issued 2020</p>
-            <div className="credential-rule" />
-            <h3>MongoDB with Java Spring Boot</h3>
-            <p>Issued 2023</p>
-          </article>
-        </section>
-
-        <section className="operating-section" aria-labelledby="operating-title">
-          <div>
-            <p className="section-label">Operating principles</p>
-            <h2 id="operating-title">How I show up.</h2>
-          </div>
-          <div className="principles-list">
-            <article><span>01</span><div><h3>Reliability is product.</h3><p>Latency, failure modes, and observability belong in the product conversation.</p></div></article>
-            <article><span>02</span><div><h3>Make ambiguity executable.</h3><p>Clarify the outcome, expose trade-offs, then build the smallest honest system.</p></div></article>
-            <article><span>03</span><div><h3>Build teams, not bottlenecks.</h3><p>Good architecture creates leverage; good leadership distributes it.</p></div></article>
-          </div>
-        </section>
-
-        <section className="contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="contact-copy">
-            <p className="section-label">Let&apos;s build something consequential</p>
-            <h2 id="contact-title">Backend, AI, or a system nobody has simplified yet?</h2>
-          </div>
-          <div className="contact-panel">
-            <p>Bengaluru, India · English + Hindi</p>
-            <a className="button button-light" href="mailto:shubham101203095@gmail.com">
-              Start a conversation <Arrow />
+      <section className="projects section container" id="projects">
+        <SectionTitle eyebrow="Selected work">Ideas taken all the way to a working product.</SectionTitle>
+        <div className="project-grid">
+          <article className="project-card">
+            <a className="project-visual stock-visual" href="https://singla3095.github.io/stock-trading/" target="_blank" rel="noreferrer" aria-label="Open NIFTY50 Trader Pro">
+              <img src="./project-stock.png" alt="NIFTY50 Trader Pro market dashboard" />
             </a>
-            <a href="./Shubham-Singla-Resume.pdf" download>Download résumé ↓</a>
-          </div>
-        </section>
+            <div className="project-body">
+              <p className="project-kind">Market intelligence</p>
+              <h3>NIFTY50 Trader Pro</h3>
+              <p>A focused dashboard for reading market structure, momentum, technical signals, and portfolio state.</p>
+              <div className="project-links">
+                <a href="https://singla3095.github.io/stock-trading/" target="_blank" rel="noreferrer">Live project <Arrow /></a>
+                <a href="https://github.com/singla3095/stock-trading" target="_blank" rel="noreferrer">Source <Arrow /></a>
+              </div>
+            </div>
+          </article>
 
-        <footer>
-          <span>Shubham Singla · Backend &amp; AI Engineer</span>
-          <div>
-            <a href="https://www.linkedin.com/in/shubham-singla-864a55106/" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
-            <a href="https://github.com/singla3095" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
-            <a href="#top">Top ↑</a>
+          <article className="project-card">
+            <a className="project-visual bio-visual" href="https://singla3095.github.io/digital-bio-maker/" target="_blank" rel="noreferrer" aria-label="Open Digital Bio Maker">
+              <span className="browser-bar"><i /><i /><i /></span>
+              <span className="bio-preview">
+                <small>DIGITAL BIO MAKER</small>
+                <strong>Your story,<br />beautifully presented.</strong>
+                <em>Build my portfolio →</em>
+              </span>
+            </a>
+            <div className="project-body">
+              <p className="project-kind">Creator tooling</p>
+              <h3>Digital Bio Maker</h3>
+              <p>A no-code portfolio builder that turns a professional story into a clean, shareable digital presence.</p>
+              <div className="project-links">
+                <a href="https://singla3095.github.io/digital-bio-maker/" target="_blank" rel="noreferrer">Live project <Arrow /></a>
+                <a href="https://github.com/singla3095/digital-bio-maker" target="_blank" rel="noreferrer">Source <Arrow /></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="skills section" id="skills">
+        <div className="container">
+          <SectionTitle eyebrow="Toolkit">Technologies I use to ship reliable systems.</SectionTitle>
+          <div className="skill-grid">
+            {skillGroups.map((group) => (
+              <div className="skill-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </div>
+            ))}
           </div>
-        </footer>
-      </div>
+          <div className="credentials">
+            <div>
+              <p>Education</p>
+              <h3>Computer Engineering</h3>
+              <span>Thapar Institute · 2016</span>
+            </div>
+            <div>
+              <p>Credentials</p>
+              <h3>AWS Solutions Architect – Associate</h3>
+              <span>Issued Dec 2020 · Expired Dec 2023</span>
+            </div>
+            <div>
+              <p>Credential</p>
+              <h3>MongoDB with Java Spring Boot</h3>
+              <span>Issued Jun 2023</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact section container" id="contact">
+        <p className="eyebrow">Contact</p>
+        <h2>Have a hard engineering problem?</h2>
+        <p>I&apos;m always happy to talk about backend systems, applied AI, engineering leadership, or an ambitious product idea.</p>
+        <a className="button primary" href="mailto:shubham101203095@gmail.com">Start a conversation <span aria-hidden="true">→</span></a>
+      </section>
+
+      <footer>
+        <div className="container footer-inner">
+          <p>© 2026 Shubham Singla</p>
+          <div><a href="https://github.com/singla3095">GitHub</a><a href="https://www.linkedin.com/in/shubham-singla-864a55106/">LinkedIn</a><a href="#top">Back to top ↑</a></div>
+        </div>
+      </footer>
     </main>
   );
 }

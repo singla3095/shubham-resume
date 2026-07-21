@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,19 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
-  subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
-});
-
 const siteUrl = "https://singla3095.github.io/shubham-resume/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Shubham Singla · Backend & AI Engineer",
   description:
-    "Engineering portfolio of Shubham Singla: 10+ years building backend platforms, payment systems, applied AI products, and strong engineering teams.",
+    "Shubham Singla is a backend and AI engineer with 10+ years building payment systems, cloud platforms, and applied AI products.",
   applicationName: "Shubham Singla",
   authors: [{ name: "Shubham Singla" }],
   alternates: { canonical: siteUrl },
@@ -39,23 +33,23 @@ export const metadata: Metadata = {
     "AWS",
   ],
   openGraph: {
-    title: "Shubham Singla · Backend Systems, Applied AI & Leadership",
-    description: "10+ years shipping across India and Singapore.",
+    title: "Shubham Singla · Backend & AI Engineer",
+    description: "10+ years building reliable systems across India and Singapore.",
     type: "profile",
     url: siteUrl,
     images: [
       {
         url: `${siteUrl}og.png`,
-        width: 1659,
-        height: 948,
-        alt: "Shubham Singla — Backend Systems, Applied AI, Engineering Leadership",
+        width: 1536,
+        height: 1024,
+        alt: "Shubham Singla, Backend and AI Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shubham Singla · Backend Systems, Applied AI & Leadership",
-    description: "10+ years shipping across India and Singapore.",
+    title: "Shubham Singla · Backend & AI Engineer",
+    description: "10+ years building reliable systems across India and Singapore.",
     images: [`${siteUrl}og.png`],
   },
 };
@@ -68,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable}`}
       >
         {children}
       </body>
