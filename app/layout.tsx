@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}og.png`,
+        url: `${siteUrl}og-staff.png`,
         width: 1536,
         height: 1024,
         alt: "Shubham Singla, Backend and AI Engineer",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shubham Singla · Staff Software Engineer",
     description: "10+ years building reliable systems across India and Singapore.",
-    images: [`${siteUrl}og.png`],
+    images: [`${siteUrl}og-staff.png`],
   },
 };
 

@@ -17,7 +17,7 @@ from reportlab.platypus import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "public" / "Shubham-Singla-Resume.pdf"
+OUTPUT = ROOT / "public" / "Shubham-Singla-Staff-Software-Engineer-Resume.pdf"
 
 INK = colors.HexColor("#182033")
 MUTED = colors.HexColor("#4D596C")

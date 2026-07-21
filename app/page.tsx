@@ -90,7 +90,7 @@ export default function Home() {
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </nav>
-          <a className="header-resume" href="./Shubham-Singla-Resume.pdf" download>
+          <a className="header-resume" href="./Shubham-Singla-Staff-Software-Engineer-Resume.pdf" download>
             Résumé <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -105,7 +105,7 @@ export default function Home() {
           engineering teams turn complex problems into software that works in the real world.
         </p>
         <div className="hero-actions">
-          <a className="button primary" href="./Shubham-Singla-Resume.pdf" download>
+          <a className="button primary" href="./Shubham-Singla-Staff-Software-Engineer-Resume.pdf" download>
             Download résumé <span aria-hidden="true">↓</span>
           </a>
           <a className="button secondary" href="#projects">
