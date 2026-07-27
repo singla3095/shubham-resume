@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Shubham Singla · Staff Software Engineer",
   description:
-    "Shubham Singla is a Staff Software Engineer at Indeed with 10+ years building AI agents, payment systems, and backend platforms.",
+    "Shubham Singla is a Staff Software Engineer at Indeed building agentic AI systems, distributed platforms, and reliable product infrastructure.",
   applicationName: "Shubham Singla",
   authors: [{ name: "Shubham Singla" }],
   alternates: { canonical: siteUrl },
@@ -26,6 +26,12 @@ export const metadata: Metadata = {
     "Shubham Singla",
     "backend engineer",
     "AI engineer",
+    "Staff Software Engineer",
+    "AI agents",
+    "LangGraph",
+    "LLM orchestration",
+    "multi-agent systems",
+    "recommender systems",
     "engineering leader",
     "distributed systems",
     "Java",
@@ -34,23 +40,23 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Shubham Singla · Staff Software Engineer",
-    description: "10+ years building reliable systems across India and Singapore.",
+    description: "Agentic AI, distributed platforms, and 10+ years of production engineering across India and Singapore.",
     type: "profile",
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}og-staff.png`,
+        url: `${siteUrl}og-2026.png`,
         width: 1536,
         height: 1024,
-        alt: "Shubham Singla, Backend and AI Engineer",
+        alt: "Shubham Singla, Staff Software Engineer building AI systems and distributed platforms",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Shubham Singla · Staff Software Engineer",
-    description: "10+ years building reliable systems across India and Singapore.",
-    images: [`${siteUrl}og-staff.png`],
+    description: "Agentic AI, distributed platforms, and 10+ years of production engineering across India and Singapore.",
+    images: [`${siteUrl}og-2026.png`],
   },
 };
 
